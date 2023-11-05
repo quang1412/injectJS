@@ -46,12 +46,13 @@
   setInterval(function() {
     const city_n = document.querySelector('#mat-select-3').innerText
     if (city_n == city) return
+    alert(city_n)
     city = city_n
     const cod_n = (cod*1000) + (city == 'TP.Hà Nội' ? 16000 : 23000)
-	  Array.from(document.querySelectorAll('#productPrice, #cod')).forEach((input) => {
-	  	// input.value = cod_n
-	  	input.value = city
-      input.dispatchEvent(e)
+	  Array.from(document.querySelectorAll('#productPrice, #cod')).forEach(i => {
+	  	i.value = cod_n
+	  	// i.value = city
+      i.dispatchEvent(e)
 	  }) 
   }, 1000)  
 // }
