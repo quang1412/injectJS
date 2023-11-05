@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	alert('ok')
 	if (window.location.hash != '#auto') return
 
   let urlParams = new URLSearchParams(window.location.search);
