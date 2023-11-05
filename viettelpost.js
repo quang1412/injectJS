@@ -1,3 +1,1 @@
-document.onload = function(){
-	alert('ok')
-}
+alert('ok')
