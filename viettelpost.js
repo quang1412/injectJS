@@ -10,11 +10,11 @@
 		a = str.replace(p, '')
 	}
 
-	let cod = parseInt(prompt('Nhập COD', window.localStorage.lastestCOD))*1000;
+	let cod = parseInt(prompt('Nhập COD', window.localStorage.lastestCOD) || 0);
 	window.localStorage.lastestCOD = cod
 
 	let name = prompt('Nhập Tên', window.localStorage.lastestName);
-	window.localStorage.lastestName
+	window.localStorage.lastestName = name
 
 	let e = new KeyboardEvent("input", {
     bubbles: true,
@@ -47,9 +47,10 @@
     const city_n = document.querySelector('#mat-select-3').innerText
     if (city_n == city) return
     city = city_n
-    const cod_n = cod + (city == 'TP.Hà Nội' ? 16000 : 23000)
+    const cod_n = (cod*1000) + (city == 'TP.Hà Nội' ? 16000 : 23000)
 	  Array.from(document.querySelectorAll('#productPrice, #cod')).forEach((input) => {
-	  	input.value = cod_n
+	  	// input.value = cod_n
+	  	input.value = city
       input.dispatchEvent(e)
 	  }) 
   }, 1000)  
