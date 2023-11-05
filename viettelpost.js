@@ -1,5 +1,5 @@
 let phone = prompt("Please enter phone", 0) || 0
-
+ 
 $(document).ready(function() {
 	alert('ok')
 	if (window.location.hash != '#auto') return
