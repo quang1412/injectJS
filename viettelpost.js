@@ -25,8 +25,8 @@
   });
 
   document.querySelector('#fullName').value = name
-  document.querySelector('#autoAddress').value = a
-  document.querySelector('#phoneNo').value = p
+  document.querySelector('#autoAddress').value = address
+  document.querySelector('#phoneNo').value = phone
   document.querySelector('#productName').value = 'Bumkids - Trịnh Hiền'
   document.querySelector('#productWeight').value = 300
 
@@ -40,7 +40,6 @@
  		#quantity, #productWeight, #dai, #rong, #cao`)).forEach(i => {
     i.dispatchEvent(e);
  	})
-
 
   let city
   setInterval(function() {
