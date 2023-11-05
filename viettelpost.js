@@ -1,13 +1,13 @@
 // window.onload = function(){
 	// if (window.location.hash != '#auto') return
 	const doc = document
-  let p, a
+  let phone, address
 	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
 	window.localStorage.lastestPhone = str
 	if(str != '' && str != null) { 
 		let match = str.match(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g);
-		p = match && match[0]
-		a = str.replace(p, '')
+		phone = match && match[0]
+		address = str.replace(phone, '')
 	}
 
 	let cod = parseInt(prompt('Nhập COD', window.localStorage.lastestCOD) || 0);
