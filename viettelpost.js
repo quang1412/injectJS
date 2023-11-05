@@ -1,5 +1,5 @@
 window.onload = function(){
-	if (window.location.hash != '#auto') return
+	// if (window.location.hash != '#auto') return
 	const doc = document
   let p, a
 	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
@@ -24,15 +24,15 @@ window.onload = function(){
     shiftKey: false
   });
 
-  doc.querySelector('#fullName').value = name
-  doc.querySelector('#autoAddress').value = a
-  doc.querySelector('#phoneNo').value = p
-  doc.querySelector('#productName').value = 'Bumkids - Trịnh Hiền'
-  doc.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+  document.querySelector('#fullName').value = name
+  document.querySelector('#autoAddress').value = a
+  document.querySelector('#phoneNo').value = p
+  document.querySelector('#productName').value = 'Bumkids - Trịnh Hiền'
+  document.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
   	input.value = cod
   })
-  doc.querySelector('#otherYeuCauGiao').value = '𝗞𝗵𝗼̂𝗻𝗴 𝗰𝗵𝗼 𝘅𝗲𝗺 𝗵𝗮̀𝗻𝗴, 𝗞𝗵𝗼̂𝗻𝗴 𝗴𝗶𝗮𝗼 đ𝘂̛𝗼̛̣𝗰 𝘃𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝘀𝗵𝗼𝗽'
-	doc.querySelectorAll(`#phoneNo, #fullName, #autoAddress, #orderNo, 
+  document.querySelector('#otherYeuCauGiao').value = '𝗞𝗵𝗼̂𝗻𝗴 𝗰𝗵𝗼 𝘅𝗲𝗺 𝗵𝗮̀𝗻𝗴, 𝗞𝗵𝗼̂𝗻𝗴 𝗴𝗶𝗮𝗼 đ𝘂̛𝗼̛̣𝗰 𝘃𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝘀𝗵𝗼𝗽'
+	document.querySelectorAll(`#phoneNo, #fullName, #autoAddress, #orderNo, 
  		#otherYeuCauGiao, #productPrice, #cod, #productName, 
  		#quantity, #productWeight, #dai, #rong, #cao`).forEach((i, input) => {
     input.dispatchEvent(e);
@@ -40,11 +40,11 @@ window.onload = function(){
 
   let city
   setInterval(function() {
-    const city_n = doc.querySelector('#mat-select-3').innerText
+    const city_n = document.querySelector('#mat-select-3').innerText
     if (city_n == city) return
     city = city_n
     const cod_n = cod + (city == 'TP.Hà Nội' ? 16000 : 23000)
-	  doc.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+	  document.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
 	  	input.value = cod_n
       input.dispatchEvent(e)
 	  }) 
