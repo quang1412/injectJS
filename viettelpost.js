@@ -1,3 +1,4 @@
+alert('ok')
 window.onload = function(){
 	alert('ok')
 	const doc = document
