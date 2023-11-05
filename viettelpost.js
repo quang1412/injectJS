@@ -1,4 +1,5 @@
-alert('ok')
+window.onload = function(){
+	// if (window.location.hash != '#auto') return
 	const doc = document
   let p, a
 	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
@@ -13,7 +14,7 @@ alert('ok')
 	window.localStorage.lastestCOD = cod
 
 	let name = prompt('Nhập Tên', window.localStorage.lastestName);
-	window.localStorage.lastestName = name
+	window.localStorage.lastestName
 
 	let e = new KeyboardEvent("input", {
     bubbles: true,
@@ -27,15 +28,19 @@ alert('ok')
   document.querySelector('#autoAddress').value = a
   document.querySelector('#phoneNo').value = p
   document.querySelector('#productName').value = 'Bumkids - Trịnh Hiền'
-  document.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
-  	input.value = cod
-  })
+  document.querySelector('#productWeight').value = 300
+
+  // document.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+  // 	input.value = cod
+  // })
   document.querySelector('#otherYeuCauGiao').value = '𝗞𝗵𝗼̂𝗻𝗴 𝗰𝗵𝗼 𝘅𝗲𝗺 𝗵𝗮̀𝗻𝗴, 𝗞𝗵𝗼̂𝗻𝗴 𝗴𝗶𝗮𝗼 đ𝘂̛𝗼̛̣𝗰 𝘃𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝘀𝗵𝗼𝗽'
-	document.querySelectorAll(`#phoneNo, #fullName, #autoAddress, #orderNo, 
- 		#otherYeuCauGiao, #productPrice, #cod, #productName, 
- 		#quantity, #productWeight, #dai, #rong, #cao`).forEach((i, input) => {
-    input.dispatchEvent(e);
-  }) 
+
+ 	Array.from(document.querySelectorAll(`#phoneNo, #fullName, #autoAddress, #orderNo, 
+ 		#otherYeuCauGiao, #productName, 
+ 		#quantity, #productWeight, #dai, #rong, #cao`)).forEach(i => {
+    i.dispatchEvent(e);
+ 	})
+
 
   let city
   setInterval(function() {
@@ -43,8 +48,10 @@ alert('ok')
     if (city_n == city) return
     city = city_n
     const cod_n = cod + (city == 'TP.Hà Nội' ? 16000 : 23000)
-	  document.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+	  Array.from(document.querySelectorAll('#productPrice, #cod')).forEach((input) => {
 	  	input.value = cod_n
       input.dispatchEvent(e)
 	  }) 
   }, 1000)  
+}
+ 
