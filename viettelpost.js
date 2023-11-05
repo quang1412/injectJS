@@ -1,4 +1,4 @@
-window.onload = function(){
+// window.onload = function(){
 	// if (window.location.hash != '#auto') return
 	const doc = document
   let p, a
@@ -53,5 +53,5 @@ window.onload = function(){
       input.dispatchEvent(e)
 	  }) 
   }, 1000)  
-}
+// }
  
