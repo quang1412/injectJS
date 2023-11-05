@@ -11,17 +11,7 @@ $(document).ready(function() {
   let url_phone = urlParams.get('p')
   let url_address = urlParams.get('a')
   let url_cod = urlParams.get('cod')
-  let cod = parseInt(url_cod)
-
-  // let ggSheetUrl
-  // local.get(['ggSheetUrl']).then(result => { ggSheetUrl = result.ggSheetUrl })
-
-  // let buyer = {
-  //   uid: buyer_id,
-  //   name: url_name,
-  //   phone: url_phone,
-  //   address: url_address
-  // }
+  let cod = parseInt(url_cod) 
 
   let e = new KeyboardEvent("input", {
     bubbles: true,
@@ -49,15 +39,6 @@ $(document).ready(function() {
   $('#rong').val(30)
   $('#cao').val(10)
 
-  // setTimeout(() => {
-  // 	$.each($(`#phoneNo, #fullName, #autoAddress, #orderNo, 
-  // 		#otherYeuCauGiao, #productPrice, #cod, #productName, 
-  // 		#quantity, #productWeight, #dai, #rong, #cao`), (i, element) => {
-  // 	  element.dispatchEvent(e);
-  // 	})
-  // 	$('#autoAddress').focus()
-  // }, 1000)
-
   $.each($(`#phoneNo, #fullName, #autoAddress, #orderNo, 
  		#otherYeuCauGiao, #productPrice, #cod, #productName, 
  		#quantity, #productWeight, #dai, #rong, #cao`), (i, element) => {
@@ -77,20 +58,6 @@ $(document).ready(function() {
       element.dispatchEvent(e)
     })
     // console.log('COD: ', cod_n)
-  }, 1000)
-
-  // $('form#createEditForm div:first-child > button.btn-viettel').click(function() {
-  //   // nút Gửi ngay
-  //   order = {
-  //     createTime: new Date().getTime(),
-  //     orderId: $('#rowOrderNo1').text(),
-  //     commentId: commentId,
-  //     buyerId: buyer.uid,
-  //     buyerName: $('#fullName').val(),
-  //     buyerPhone: $('#phoneNo').val(),
-  //     buyerAddress: $('form#createEditForm div.box-receiver small.text-muted:first').text().replace(/X\.|Đ\.|H\.|TP\.|\,+/gi, '').trim(),
-  //   }
-  //   console.log(order)
-  // })
+  }, 1000) 
 
 })
