@@ -1,6 +1,4 @@
 alert('ok')
-window.onload = function(){
-	alert('ok')
 	const doc = document
   let p, a
 	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
@@ -15,7 +13,7 @@ window.onload = function(){
 	window.localStorage.lastestCOD = cod
 
 	let name = prompt('Nhập Tên', window.localStorage.lastestName);
-	window.localStorage.lastestName
+	window.localStorage.lastestName = name
 
 	let e = new KeyboardEvent("input", {
     bubbles: true,
@@ -50,5 +48,3 @@ window.onload = function(){
       input.dispatchEvent(e)
 	  }) 
   }, 1000)  
-}
- 
