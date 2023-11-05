@@ -10,7 +10,7 @@
 		a = str.replace(p, '')
 	}
 
-	let cod = parseInt(prompt('Nhập COD', window.localStorage.lastestCOD));
+	let cod = parseInt(prompt('Nhập COD', window.localStorage.lastestCOD))*1000;
 	window.localStorage.lastestCOD = cod
 
 	let name = prompt('Nhập Tên', window.localStorage.lastestName);
