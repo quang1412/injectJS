@@ -1,5 +1,5 @@
 window.onload = function(){
-	// if (window.location.hash != '#auto') return
+	alert('ok')
 	const doc = document
   let p, a
 	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
