@@ -1,21 +1,22 @@
-let phone = prompt("Please enter phone", 0) || 0
- 
-$(document).ready(function() {
-	alert('ok')
+window.onload = function(){
 	if (window.location.hash != '#auto') return
+	const doc = document
+  let p, a
+	let str = prompt('Nhập địa chỉ, sđt', window.localStorage.lastestPhone);
+	window.localStorage.lastestPhone = str
+	if(str != '' && str != null) { 
+		let match = str.match(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g);
+		p = match && match[0]
+		a = str.replace(p, '')
+	}
 
-  let urlParams = new URLSearchParams(window.location.search);
-  let commentId = urlParams.get('c')
-  // let orderNote = urlParams.get('note')
-  let from = urlParams.get('f') || 'profile'
-  let buyer_id = urlParams.get('b')
-  let url_name = urlParams.get('n')
-  let url_phone = urlParams.get('p')
-  let url_address = urlParams.get('a')
-  let url_cod = urlParams.get('cod')
-  let cod = parseInt(url_cod) 
+	let cod = prompt('Nhập COD', window.localStorage.lastestCOD);
+	window.localStorage.lastestCOD = cod
 
-  let e = new KeyboardEvent("input", {
+	let name = prompt('Nhập Tên', window.localStorage.lastestName);
+	window.localStorage.lastestName
+
+	let e = new KeyboardEvent("input", {
     bubbles: true,
     cancelable: true,
     key: "Q",
@@ -23,43 +24,30 @@ $(document).ready(function() {
     shiftKey: false
   });
 
-  let phone = prompt("Please enter phone", 0) || 0
-
-  $('#phoneNo').val(url_phone)
-  $('#fullName').val(url_name)
-  $('#autoAddress').val(url_address)
-  // $('#orderNo').val(from.substr(0, 3) + '_' + commentId).attr('disabled', '')
-  $('#otherYeuCauGiao').val('𝗞𝗵𝗼̂𝗻𝗴 𝗰𝗵𝗼 𝘅𝗲𝗺 𝗵𝗮̀𝗻𝗴, 𝗞𝗵𝗼̂𝗻𝗴 𝗴𝗶𝗮𝗼 đ𝘂̛𝗼̛̣𝗰 𝘃𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝘀𝗵𝗼𝗽')
-  $('#productPrice, #cod').val(cod)
-  // $('#productPrice, #cod').val(cod + fee)
-  // $('#productPrice').val(url_cod)
-  // deafult
-  $('#productName').val('Bumkids - Trịnh Hiền')
-  $('#quantity').val(1)
-  $('#productWeight').val(300)
-  $('#dai').val(30)
-  $('#rong').val(30)
-  $('#cao').val(10)
-
-  $.each($(`#phoneNo, #fullName, #autoAddress, #orderNo, 
- 		#otherYeuCauGiao, #productPrice, #cod, #productName, 
- 		#quantity, #productWeight, #dai, #rong, #cao`), (i, element) => {
-    element.dispatchEvent(e);
+  doc.querySelector('#fullName').value = name
+  doc.querySelector('#autoAddress').value = a
+  doc.querySelector('#phoneNo').value = p
+  doc.querySelector('#productName').value = 'Bumkids - Trịnh Hiền'
+  doc.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+  	input.value = cod
   })
-  $('#phoneNo').focus()
-
+  doc.querySelector('#otherYeuCauGiao').value = '𝗞𝗵𝗼̂𝗻𝗴 𝗰𝗵𝗼 𝘅𝗲𝗺 𝗵𝗮̀𝗻𝗴, 𝗞𝗵𝗼̂𝗻𝗴 𝗴𝗶𝗮𝗼 đ𝘂̛𝗼̛̣𝗰 𝘃𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝘀𝗵𝗼𝗽'
+	doc.querySelectorAll(`#phoneNo, #fullName, #autoAddress, #orderNo, 
+ 		#otherYeuCauGiao, #productPrice, #cod, #productName, 
+ 		#quantity, #productWeight, #dai, #rong, #cao`).forEach((i, input) => {
+    input.dispatchEvent(e);
+  }) 
 
   let city
   setInterval(function() {
-    const city_n = $('#mat-select-3').text()
-    if (!city_n || city_n == city) return
+    const city_n = doc.querySelector('#mat-select-3').innerText
+    if (city_n == city) return
     city = city_n
     const cod_n = cod + (city == 'TP.Hà Nội' ? 16000 : 23000)
-    $('#productPrice, #cod').val(cod_n)
-    $.each($(`#productPrice, #cod`), (i, element) => {
-      element.dispatchEvent(e)
-    })
-    // console.log('COD: ', cod_n)
-  }, 1000) 
-
-})
+	  doc.querySelectorAll('#productPrice, #cod').forEach((i, input) => {
+	  	input.value = cod_n
+      input.dispatchEvent(e)
+	  }) 
+  }, 1000)  
+}
+ 
